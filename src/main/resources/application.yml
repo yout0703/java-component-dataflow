@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: rabbitmq-dataflow
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    virtual-host: ${RABBITMQ_VHOST}
+    listener:
+      direct:
+        prefetch: 10
+        retry:
+          enabled: true
+
+dataflow:
+  runMode: http # 这里可以控制使用哪种方式处理数据流，http 方式方便调试，生产环境使用 mq 方式。
